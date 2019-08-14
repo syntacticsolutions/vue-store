@@ -11,7 +11,8 @@ export default new Vuex.Store({
     storeItems,
     storeConfig,
     page: 1,
-    viewingAmount: 20
+    viewingAmount: 20,
+    shoppingCart: []
   },
   mutations: {
     setPage (state, payload) {
@@ -19,6 +20,14 @@ export default new Vuex.Store({
     },
     setViewingAmount (state, payload) {
       state.viewingAmount = payload
+    },
+    addToShoppingCart(state, payload) {
+      state.shoppingCart.push(payload)
+    },
+    removeFromShoppingCart (state, title) {
+      let itemIndex = state.shoppingCart.findIndex(item => item.title === title)
+
+      if (itemIndex > -1) state.shoppingCart.splice(itemIndex, 1)
     }
   }
 })
