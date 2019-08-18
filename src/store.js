@@ -21,7 +21,7 @@ export default new Vuex.Store({
     setViewingAmount (state, payload) {
       state.viewingAmount = payload
     },
-    addToShoppingCart(state, payload) {
+    addToShoppingCart (state, payload) {
       state.shoppingCart.push(payload)
     },
     removeFromShoppingCart (state, title) {

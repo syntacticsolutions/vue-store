@@ -1,13 +1,22 @@
 <template>
     <span>
         <ul class="pagination" style="white-space: pre;">
-            <li class="pagination-link" @click="go(0)">&lt;&lt;    </li>
-            <li class="pagination-link" @click="go(-1)">&lt;    </li>
+            <li class="page-far-left" @click="go(0)" style="white-space: pre;">
+                <i class="ion-ios-arrow-back" />
+                <i class="ion-ios-arrow-back" />
+            </li>
+            <li class="page-left" @click="go(-1)">
+                <i class="ion-ios-arrow-back" />    </li>
             <li>|    </li>
             <li>Page: {{ page }} of {{ pages }}    </li>
             <li>|    </li>
-            <li class="pagination-link" @click="go(1)">&gt;    </li>
-            <li class="pagination-link" @click="go(2)">&gt;&gt;</li>
+            <li class="page-right" @click="go(1)">
+                <i class="ion-ios-arrow-forward" />
+            </li>
+            <li class="page-far-right" @click="go(2)">
+                <i class="ion-ios-arrow-forward" />
+                <i class="ion-ios-arrow-forward" />
+            </li>
         </ul>
     </span>
 </template>
@@ -58,12 +67,20 @@ export default {
         align-items: center;
     }
 
-    .pagination-link {
-        letter-spacing: -2px;
+    .page-far-left,
+    .page-left {
         display: flex;
-        align-items: center;
+        justify-content: flex-start;
+        width: 20px;
         cursor: pointer;
-        font-weight: 500;
+    }
+
+    .page-far-right,
+    .page-right {
+        display: flex;
+        justify-content: flex-end;
+        width: 20px;
+        cursor: pointer;
     }
 }
 </style>
